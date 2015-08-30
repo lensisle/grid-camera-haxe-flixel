@@ -107,7 +107,7 @@ class GridCamera
 	public function destroy():Void 
 	{
 		actor.destroy();
-		#if (cpp || php)
+		#if (cpp)
 			gridsX.splice(0, gridsX.length);
 			gridsY.splice(0, gridsY.length);
 		#else
