@@ -1,6 +1,6 @@
 # HaxeFlixel GridCamera
 
-HaxeFlixel GridCamera is a tiny class for HaxeFlixel that emulates the screen transition effect of the The Legend of Zelda 2D.
+HaxeFlixel GridCamera is a tiny class for HaxeFlixel that emulates the screen transition effect of the first The Legend of Zelda game.
 
 Example: 
 
