@@ -49,6 +49,7 @@ class GridCamera
 		this.currentGridY = currentGridY;
 		this.cameraWidth = cameraWidth;
 		this.cameraHeight = cameraHeight;
+		this.transitionTime = transitionTime;
 	}
 	
 	public function set(x:Int=0, y:Int=0):Void
