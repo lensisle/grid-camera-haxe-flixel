@@ -34,7 +34,7 @@ var gridCamera:GridCamera = new GridCamera(
 * **cameraHeight**: the current height of your camera. (frecuently is the height of the FlxG.camera object)
 * **currentGridX**: the starting grid x of your actor (default is 0)
 * **currentGridY**: the starting grid y of your actor (default is 0)
-* **transitionTime**: the time that takes passing from one screen to other (default is 1.5)
+* **transitionTime**: the time that takes passing from one screen to other (default is 1.5 seconds)
 
 then, you have to set the camera:
 
