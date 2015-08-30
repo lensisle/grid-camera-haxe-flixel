@@ -26,7 +26,7 @@ var gridCamera:GridCamera = new GridCamera(
                                 transitionTime:Float=1.5
                         );
 ```
-* **actor**: the object interacts with the camera
+* **actor**: the object that interacts with the camera
 * **mapWidthInTiles**: number of width tiles (total) of your map 
 * **mapHeightInTiles**:  number of height tiles (total) of your map
 * **tileSize**: the size of your tiles.
