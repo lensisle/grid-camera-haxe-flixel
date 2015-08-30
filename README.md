@@ -14,17 +14,17 @@ Just include this class in your haxeflixel project.
 Using this class is very simple. First, initialize:
 
 ```haxe
-var gridCamera:GridCamera = new GridCamera(
-                                actor:FlxSprite,            
-                                mapWidthInTiles:Int,
-                                mapHeightInTiles:Int, 
-                                tileSize:Int, 
-                                cameraWidth:Int, 
-                                cameraHeight:Int, 
-                                currentGridX:Int=0, 
-                                currentGridY:Int=0,
-                                transitionTime:Float=1.5
-                        );
+var gridCamera = new GridCamera(
+                        actor:FlxSprite,            
+                        mapWidthInTiles:Int,
+                        mapHeightInTiles:Int, 
+                        tileSize:Int, 
+                        cameraWidth:Int, 
+                        cameraHeight:Int, 
+                        currentGridX:Int=0, 
+                        currentGridY:Int=0,
+                        transitionTime:Float=1.5
+                  );
 ```
 * **actor**: the object that interacts with the camera
 * **mapWidthInTiles**: number of width tiles (total) of your map 
