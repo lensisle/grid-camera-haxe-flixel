@@ -7,13 +7,13 @@ Example:
 ![The Legend of Zelda](https://raw.github.com/camiloei/HaxeFlixel-GridCamera/master/image/tloz.gif)
 
 ### Installation
-just include this class in your haxeflixel project.
+Just include this class in your haxeflixel project.
 
 ### Usage
 
-using this class is very simple. First, initialize:
+Using this class is very simple. First, initialize:
 
-```sh
+```haxe
 var gridCamera:GridCamera = new GridCamera(
                                 actor:FlxSprite,            
                                 mapWidthInTiles:Int,
@@ -36,17 +36,17 @@ var gridCamera:GridCamera = new GridCamera(
 * **currentGridY**: the starting grid y of your actor (default is 0)
 * **transitionTime**: the time that takes passing from one screen to other (default is 1.5 seconds)
 
-then, you have to set the camera:
+Then, you have to set the camera:
 
-```sh
+```haxe
 gridCamera.set();
 ```
 
-this method set the camera bounds and initialize coordinate variables.
+This method set the camera bounds and initialize coordinate variables.
 
-and finally, you have to update the camera (in your update method):
+And finally, you have to update the camera (in your update method):
 
-```sh
+```haxe
 gridCamera.update();
 ```
 
@@ -58,4 +58,4 @@ result:
 
 Feel free to use this class whatever you want whenever you want.
 
-you can tweet me at @camiloei if you have questions.
+You can tweet me at @camiloei if you have questions.
