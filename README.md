@@ -52,7 +52,7 @@ gridCamera.update();
 
 result:
 
-![HaxeFlixel GridCamera Example](https://raw.github.com/camiloei/HaxeFlixel-GridCamera/master/image/example.gif)
+![Example](https://github.com/camiloei/HaxeFlixel-GridCamera/raw/master/image/example.gif)
 
 ### Thanks for visiting!
 
