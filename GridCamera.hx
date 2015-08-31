@@ -54,7 +54,7 @@ class GridCamera
 	
 	public function set(x:Int=0, y:Int=0):Void
 	{
-		FlxG.camera.setBounds(x, y, mapWidthInPixels, mapHeightInPixels);
+		FlxG.camera.setBounds(x, y, mapWidthInPixels, mapHeightInPixels, true);
 		for (i in 0...numberOfGridsX) {
 			gridsX.push(i * cameraWidth);
 		}
