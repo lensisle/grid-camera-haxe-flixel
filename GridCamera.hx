@@ -66,9 +66,10 @@ class GridCamera
 	
 	public function update():Void
 	{
-		if (actor.x >= gridsX[currentGridX] + cameraWidth && actor.x < mapWidthInPixels && !isMoving) {
+		if (actor.x >= gridsX[currentGridX] + cameraWidth - actor.width && actor.x < mapWidthInPixels && !isMoving) {
 			isMoving = true;
 			var tween = FlxTween.tween(FlxG.camera.scroll, { x: FlxG.camera.scroll.x + cameraWidth }, transitionTime);
+			FlxTween.tween(actor, { x: actor.x + actor.width }, transitionTime);
 			tween.complete = function(t:FlxTween) {
 				currentGridX += 1;
 				isMoving = false;
@@ -82,9 +83,10 @@ class GridCamera
 				isMoving = false;
 			};
 		}
-		if (actor.y >= gridsY[currentGridY] + cameraHeight && actor.y < mapHeightInPixels && !isMoving) {
+		if (actor.y >= gridsY[currentGridY] + cameraHeight - actor.height && actor.y < mapHeightInPixels && !isMoving) {
 			isMoving = true;
 			var tween = FlxTween.tween(FlxG.camera.scroll, { y: FlxG.camera.scroll.y + cameraHeight }, transitionTime);
+			FlxTween.tween(actor, { y: actor.y + actor.height }, transitionTime);
 			tween.complete = function(t:FlxTween) {
 				currentGridY += 1;
 				isMoving = false;
