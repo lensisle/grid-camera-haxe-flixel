@@ -33,14 +33,10 @@ class GridCamera
 		
 		mapWidthInPixels = mapWidthInTiles * tileSize;
 		mapHeightInPixels = mapHeightInTiles * tileSize;
-		
-		if(mapWidthInPixels % cameraWidth == 0 && mapHeightInPixels % cameraHeight == 0) {
-			numberOfGridsX = Std.int(mapWidthInPixels / cameraWidth);
-			numberOfGridsY = Std.int(mapHeightInPixels / cameraHeight);
-		} else {
-			throw "Invalid camera width/height, must be divisible with map size";
-		}
-		
+	
+		numberOfGridsX = Std.int(mapWidthInPixels / cameraWidth);
+		numberOfGridsY = Std.int(mapHeightInPixels / cameraHeight);
+	
 		gridsX = new Array<Int>();
 		gridsY = new Array<Int>();
 		isMoving = false;
