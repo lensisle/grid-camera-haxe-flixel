@@ -51,6 +51,10 @@ class GridCamera
 	public function set(x:Int=0, y:Int=0):Void
 	{
 		FlxG.camera.setBounds(x, y, mapWidthInPixels, mapHeightInPixels, true);
+		if(currentGridX != 0 || currentGridY != 0) {
+			FlxG.camera.scroll.x = currentGridX * cameraWidth;
+			FlxG.camera.scroll.y = currentGridY * cameraHeight;
+		}
 		for (i in 0...numberOfGridsX) {
 			gridsX.push(i * cameraWidth);
 		}
