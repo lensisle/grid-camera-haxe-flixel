@@ -1,5 +1,6 @@
 package ;
 
+import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.tweens.FlxTween;
@@ -27,30 +28,34 @@ class GridCamera
 	
 	private var transitionTime:Float;
 	
-	public function new(actor:FlxSprite, mapWidthInTiles:Int, mapHeightInTiles:Int, tileSize:Int, cameraWidth:Int, cameraHeight:Int, currentGridX:Int=0, currentGridY:Int=0, transitionTime:Float=1.5) 
+	private var camera:FlxCamera;
+	
+	public function new(actor:FlxSprite, mapWidthInTiles:Int, mapHeightInTiles:Int, tileSize:Int, camera:FlxCamera, currentGridX:Int=0, currentGridY:Int=0, transitionTime:Float=1.5) 
 	{
 		this.actor = actor;
 		
 		mapWidthInPixels = mapWidthInTiles * tileSize;
 		mapHeightInPixels = mapHeightInTiles * tileSize;
-	
-		numberOfGridsX = Std.int(mapWidthInPixels / cameraWidth);
-		numberOfGridsY = Std.int(mapHeightInPixels / cameraHeight);
-	
+		
+		numberOfGridsX = Std.int(mapWidthInPixels / camera.width);
+		numberOfGridsY = Std.int(mapHeightInPixels / camera.height);
+		
 		gridsX = new Array<Int>();
 		gridsY = new Array<Int>();
 		isMoving = false;
 		
+		this.camera = camera;
 		this.currentGridX = currentGridX;
 		this.currentGridY = currentGridY;
-		this.cameraWidth = cameraWidth;
-		this.cameraHeight = cameraHeight;
+		this.cameraWidth = camera.width;
+		this.cameraHeight = camera.height;
 		this.transitionTime = transitionTime;
 	}
 	
 	public function set(x:Int=0, y:Int=0):Void
 	{
-		FlxG.camera.setBounds(x, y, mapWidthInPixels, mapHeightInPixels, true);
+		camera.setBounds(x, y, mapWidthInPixels, mapHeightInPixels, true);
+		FlxG.cameras.reset(camera);
 		if(currentGridX != 0 || currentGridY != 0) {
 			FlxG.camera.scroll.x = currentGridX * cameraWidth;
 			FlxG.camera.scroll.y = currentGridY * cameraHeight;
@@ -70,7 +75,7 @@ class GridCamera
 	
 	public function update():Void
 	{
-		if (actor.x >= gridsX[currentGridX] + cameraWidth - actor.width && actor.x < mapWidthInPixels && !isMoving) {
+		if (actor.x >= gridsX[currentGridX] + cameraWidth - actor.width && actor.x < mapWidthInPixels - actor.width && !isMoving) {
 			isMoving = true;
 			var tween = FlxTween.tween(FlxG.camera.scroll, { x: FlxG.camera.scroll.x + cameraWidth }, transitionTime);
 			FlxTween.tween(actor, { x: actor.x + actor.width }, transitionTime);
@@ -87,7 +92,7 @@ class GridCamera
 				isMoving = false;
 			};
 		}
-		if (actor.y >= gridsY[currentGridY] + cameraHeight - actor.height && actor.y < mapHeightInPixels && !isMoving) {
+		if (actor.y >= gridsY[currentGridY] + cameraHeight - actor.height && actor.y < mapHeightInPixels - actor.height && !isMoving) {
 			isMoving = true;
 			var tween = FlxTween.tween(FlxG.camera.scroll, { y: FlxG.camera.scroll.y + cameraHeight }, transitionTime);
 			FlxTween.tween(actor, { y: actor.y + actor.height }, transitionTime);
