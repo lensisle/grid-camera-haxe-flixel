@@ -45,17 +45,19 @@ class GridCamera
 		isMoving = false;
 		
 		this.camera = camera;
+		
 		this.currentGridX = currentGridX;
 		this.currentGridY = currentGridY;
+		
 		this.cameraWidth = camera.width;
 		this.cameraHeight = camera.height;
+		
 		this.transitionTime = transitionTime;
 	}
 	
 	public function set(x:Int=0, y:Int=0):Void
 	{
 		camera.setBounds(x, y, mapWidthInPixels, mapHeightInPixels, true);
-		FlxG.cameras.reset(camera);
 		if(currentGridX != 0 || currentGridY != 0) {
 			FlxG.camera.scroll.x = currentGridX * cameraWidth;
 			FlxG.camera.scroll.y = currentGridY * cameraHeight;
@@ -71,6 +73,26 @@ class GridCamera
 	public function setTransitionTime(time:Float):Void
 	{
 		transitionTime = time;
+	}
+
+	public function getBoundsX():Int
+	{
+		return mapWidthInPixels;
+	}
+
+	public function getBoundsY():Int
+	{
+		return mapHeightInPixels;
+	}
+
+	public function getWidth():Int
+	{
+		return cameraWidth;
+	}
+
+	public function getHeight():Int
+	{
+		return cameraHeight;
 	}
 	
 	public function update():Void
