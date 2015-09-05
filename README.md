@@ -19,8 +19,7 @@ var gridCamera = new GridCamera(
                         mapWidthInTiles:Int,
                         mapHeightInTiles:Int, 
                         tileSize:Int, 
-                        cameraWidth:Int, 
-                        cameraHeight:Int, 
+                        camera:FlxCamera, 
                         currentGridX:Int=0, 
                         currentGridY:Int=0,
                         transitionTime:Float=1.5
@@ -30,8 +29,7 @@ var gridCamera = new GridCamera(
 * **mapWidthInTiles**: number of width tiles (total) of your map 
 * **mapHeightInTiles**:  number of height tiles (total) of your map
 * **tileSize**: the size of your tiles.
-* **cameraWidth**: the current width of your camera. (frecuently is the width of the FlxG.camera object)
-* **cameraHeight**: the current height of your camera. (frecuently is the height of the FlxG.camera object)
+* **camera**: the camera object (the camera where your map and actor are rendered).
 * **currentGridX**: the starting grid x of your actor (default is 0)
 * **currentGridY**: the starting grid y of your actor (default is 0)
 * **transitionTime**: the time that takes passing from one screen to other (default is 1.5 seconds)
