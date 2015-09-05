@@ -29,7 +29,7 @@ var gridCamera = new GridCamera(
 * **mapWidthInTiles**: number of width tiles (total) of your map 
 * **mapHeightInTiles**:  number of height tiles (total) of your map
 * **tileSize**: the size of your tiles.
-* **camera**: the camera object (the camera where your map and actor are rendered).
+* **camera**: the camera where your map and actor are rendered.
 * **currentGridX**: the starting grid x of your actor (default is 0)
 * **currentGridY**: the starting grid y of your actor (default is 0)
 * **transitionTime**: the time that takes passing from one screen to other (default is 1.5 seconds)
