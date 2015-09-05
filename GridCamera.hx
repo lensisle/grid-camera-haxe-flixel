@@ -74,17 +74,12 @@ class GridCamera
 	{
 		transitionTime = time;
 	}
-
-	public function getBoundsX():Int
+	
+	public function getBounds():FlxPoint
 	{
-		return mapWidthInPixels;
+		return new FlxPoint(mapWidthInPixels, mapHeightInPixels);
 	}
-
-	public function getBoundsY():Int
-	{
-		return mapHeightInPixels;
-	}
-
+	
 	public function getWidth():Int
 	{
 		return cameraWidth;
